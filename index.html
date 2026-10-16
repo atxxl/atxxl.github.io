@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV</title>
+<meta name="description" content="AI Engineer · Agentic Systems & Model Evaluation">
+<style>
+  :root{
+    --bg:#fbfaf7; --ink:#1d1d1b; --muted:#5f5d57; --line:#e2dfd6;
+    --accent:#8a4b2a; --accent-soft:#f3e6dc; --fill:#fff3b0; --fill-ink:#6b4a00;
+    --maxw:860px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161614; --ink:#ecebe6; --muted:#a39f95; --line:#2e2d29;
+      --accent:#d9956b; --accent-soft:#2b211b; --fill:#4a3d00; --fill-ink:#ffe68a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161614; --ink:#ecebe6; --muted:#a39f95; --line:#2e2d29;
+    --accent:#d9956b; --accent-soft:#2b211b; --fill:#4a3d00; --fill-ink:#ffe68a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:var(--maxw); margin:0 auto; padding:40px 16px 64px}
+  header{border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:26px}
+  h1{font-size:30px; line-height:1.15; margin:0 0 4px; letter-spacing:-.01em}
+  .role{font-size:16px; color:var(--accent); margin:0 0 10px; font-weight:600}
+  .contact{display:flex; flex-wrap:wrap; gap:6px 18px; color:var(--muted); font-size:14px; margin:0; padding:0; list-style:none}
+  .contact a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line)}
+  .summary{margin:14px 0 0; max-width:70ch}
+  section{margin:0 0 26px}
+  h2{
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+    margin:0 0 12px; padding-bottom:6px; border-bottom:1px solid var(--line);
+  }
+  .item{display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:0 0 14px}
+  .item h3{font-size:15.5px; margin:0; font-weight:650}
+  .item .when{color:var(--muted); font-size:13.5px; white-space:nowrap; text-align:right}
+  .item .sub{grid-column:1 / -1; color:var(--muted); font-size:14px; margin:0}
+  .item ul{grid-column:1 / -1; margin:6px 0 0; padding-left:18px}
+  .item li{margin:0 0 4px}
+  .item li::marker{color:var(--accent)}
+  .skills{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px 22px; margin:0; padding:0; list-style:none}
+  .skills li strong{display:block; font-size:13.5px; color:var(--accent); margin-bottom:2px}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:0 32px}
+  @media (max-width:640px){ .two{grid-template-columns:1fr} .item .when{text-align:left} }
+  .fill{background:var(--fill); color:var(--fill-ink); padding:0 4px; border-radius:3px}
+  .note{font-size:12.5px; color:var(--muted); margin-top:40px; border-top:1px dashed var(--line); padding-top:10px}
+  @media print{
+    :root{--bg:#fff; --ink:#000; --muted:#444; --line:#bbb; --accent:#7a3f22; --fill:#fff; --fill-ink:#000}
+    body{font-size:11.5px; line-height:1.35}
+    main{max-width:none; padding:0}
+    h1{font-size:22px} .role{font-size:13px} h2{margin-top:0}
+    section{margin-bottom:12px} .item{margin-bottom:8px}
+    .note{display:none}
+    @page{size:A4; margin:14mm 16mm}
+    a{color:inherit}
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Xueying Chen</h1>
+    <p class="role">AI Engineer · Agentic Systems &amp; Model Evaluation</p>
+    <ul class="contact">
+      <li>Copenhagen, Denmark</li>
+      <li><a href="mailto:xyc0904@gmail.com">xyc0904@gmail.com</a></li>
+      <li><a href="https://github.com/atxxl">github.com/atxxl</a></li>
+      <li><a href="https://www.linkedin.com/in/xycx/">linkedin.com/in/xycx</a></li>
+    </ul>
+    <p class="summary">
+      AI Engineer with a Human-Centered AI background, focused on LLM systems that are not just capable, but interpretable and reliable.
+      I find the errors that do not announce themselves: in a production agentic pipeline I built an approval workflow end to end and caught failed builds being reported as successful.
+      I also run my own agentic LLM setup day to day. Grounded in research on interpretability and model evaluation, I care about building AI that people can actually understand and trust.
+    </p>
+  </header>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="item">
+      <h3>AI Engineer (Internship) — mAI</h3>
+      <div class="when">2026</div>
+      <p class="sub">AI-generated business software: an agentic LLM pipeline that generates applications for 50+ customers. Python · Next.js / TypeScript · PostgreSQL.</p>
+      <ul>
+        <li>Built a build-request approval workflow end to end: new database table, four backend endpoints (submit, load, approve, reject), Next.js pages, notifications and an audit trail. Approval hands off to the agentic build pipeline as a background job.</li>
+        <li>Traced a silent failure in the pipeline hand-off: failed builds were recorded as successful and users were told "rebuild completed". Fixed the result check and added a backend guard that blocks invalid approvals before any database writes.</li>
+        <li>Found a race where a page reload could drop the build trigger before it reached the server; moved the trigger into the backend after the DB commit, so builds always start regardless of frontend state.</li>
+        <li>Extended infrastructure settings with VM backup configuration (schema, load/save endpoints, UI) and designed a visual language that marks external API connections in the architecture view.</li>
+        <li>Used Claude Code day to day for codebase onboarding, style-consistent refactoring and documentation.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Teaching Assistant — Technical University of Denmark (DTU)</h3>
+      <div class="when">2024</div>
+      <p class="sub">Deep Learning · Social Data Analysis &amp; Visualization · Social Graphs &amp; Interactions</p>
+      <ul>
+        <li>Mentored 150+ students in building deep neural networks (PyTorch) and error-resistant data pipelines; designed hands-on projects in sentiment analysis, community detection and recommendation systems.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="item">
+      <h3>Operating an Agentic LLM System</h3>
+      <div class="when">2026 – present</div>
+      <p class="sub">Personal project · Claude-based, MCP tool integrations, persistent memory with hybrid keyword + embedding retrieval, lifecycle hooks, scheduled wake-ups</p>
+      <ul>
+        <li>Set the control policy rather than the code: fail-closed pre-execution guardrails for unattended runs, all externally sourced content treated as untrusted input, a 24-hour change-control rule for irreversible actions, and a data-handling line for what may leave the machine.</li>
+        <li>Documented observed failure modes: silent tool failures reported as success, stale state overwriting fresh, context loss across compaction. Most of the code is agent-written; my role is architecture, review, testing and debugging.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Sarcasm Detection with Transformer Architectures</h3>
+      <div class="when">DTU</div>
+      <ul>
+        <li>Benchmarked four architectures (logistic-regression baseline, LSTM, hybrid, Transformer) on ~21k samples; the Transformer reached 86% accuracy / 0.86 F1, up from 82% for the baseline. Used attention visualization and LIME to inspect what each model relied on.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Fairness in Juvenile-Justice Risk Prediction (Catalonia dataset)</h3>
+      <div class="when">DTU</div>
+      <ul>
+        <li>Random forest (scikit-learn) on 4,652 cases; evaluated with precision, recall, F1, ROC and calibration. Assessed fairness under three criteria and applied Equalized Odds post-processing.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>MLOps Pipeline for Reproducible ML (ML-Art)</h3>
+      <div class="when">DTU · course team project</div>
+      <ul>
+        <li>Reproducible ML pipeline with Docker, GitHub Actions, Hydra and Weights &amp; Biases: automated experiment tracking, data versioning, pre-commit hooks and cross-environment reproducibility.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Theses</h2>
+
+    <div class="item">
+      <h3>Interpretable Sentiment Analysis with Concept Bottleneck Models</h3>
+      <div class="when">MSc thesis · DTU · 2024</div>
+      <ul>
+        <li>Studied how sparsity trades off interpretability against accuracy in Concept Bottleneck Models on GoEmotions (28 emotion concepts, heavy class imbalance). Reproduced Sparse CBMs as a starting point; ran 9 experiment groups / 73 tracked runs on W&amp;B with data augmentation and hyperparameter tuning, reaching a best accuracy of 80% (std. err. as low as 0.043).</li>
+        <li>Compared models with confusion matrices and tested significance with McNemar's test; showed that tuned sparsity can preserve accuracy while improving interpretability.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Moral Agent Simulation on a Trolley-Problem Dataset</h3>
+      <div class="when">BSc thesis · University of Copenhagen · 2021</div>
+      <ul>
+        <li>Modeled decision patterns in ethical dilemmas; implemented an event-driven data architecture.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="two">
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <h3>MSc Human-Centered Artificial Intelligence</h3>
+        <div class="when">2025</div>
+        <p class="sub">Technical University of Denmark (DTU) · machine learning, data science and human–AI interaction, with a focus on explainability and user-centered AI</p>
+      </div>
+      <div class="item">
+        <h3>BSc Computer Science</h3>
+        <div class="when">2021</div>
+        <p class="sub">University of Copenhagen (KU) · completed in Danish · algorithms, databases, data modeling, probability, participatory design, software development</p>
+      </div>
+      <div class="item">
+        <h3>Exchange — Peking University</h3>
+        <div class="when">2019</div>
+        <p class="sub">Technology and human-centric design · Affective Intelligent Robotics · Humanism in the AI Era</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li><strong>AI / LLM engineering</strong>Agentic LLM systems with tool calling and MCP integrations; reviewing and debugging agent-written code; Claude Code</li>
+        <li><strong>Model evaluation</strong>Benchmarking ML and NLP models, significance testing, experiment tracking (W&amp;B), interpretability (XAI, LIME, concept bottlenecks), fairness post-processing</li>
+        <li><strong>Backend &amp; full-stack</strong>Python backend handlers and APIs, PostgreSQL / SQL, Next.js · TypeScript · React, Tailwind</li>
+        <li><strong>ML &amp; tooling</strong>PyTorch, scikit-learn, NLP, Git, Docker, GitHub Actions, Hydra</li>
+      </ul>
+      <h2 style="margin-top:22px">Languages</h2>
+      <p style="margin:0">Danish and English (proficient) · Mandarin and Cantonese (native)</p>
+      <h2 style="margin-top:22px">Outside work</h2>
+      <p style="margin:0">I like making things with my hands: resin-art keycaps for custom mechanical keyboards, hand-sewn toys, cooking. Mostly I enjoy the quiet focus of building something tangible from scratch, detail by detail.</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>
