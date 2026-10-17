@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV</title>
+<title>Xueying Chen · AI Engineer</title>
 <meta name="description" content="AI Engineer · Agentic Systems & Model Evaluation">
 <style>
   :root{
@@ -102,9 +102,12 @@
     <div class="item">
       <h3>Teaching Assistant — Technical University of Denmark (DTU)</h3>
       <div class="when">2024</div>
-      <p class="sub">Deep Learning · Social Data Analysis &amp; Visualization · Social Graphs &amp; Interactions</p>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02456">02456 Deep Learning</a> · <a href="https://kurser.dtu.dk/course/02806">02806 Social Data Analysis &amp; Visualization</a> · <a href="https://kurser.dtu.dk/course/02805">02805 Social Graphs &amp; Interactions</a></p>
       <ul>
-        <li>Mentored 150+ students in building deep neural networks (PyTorch) and error-resistant data pipelines; designed hands-on projects in sentiment analysis, community detection and recommendation systems.</li>
+        <li>Mentored 150+ MSc students across three courses: weekly exercise sessions, project supervision and grading.</li>
+        <li>Deep Learning: guided students through building and debugging neural networks in PyTorch, from training loops that would not converge to models that overfit in silence.</li>
+        <li>Social Data Analysis &amp; Visualization: supervised hands-on projects on real-world datasets, with a focus on error-resistant data pipelines and honest visualizations.</li>
+        <li>Social Graphs &amp; Interactions: supervised projects in community detection and recommendation systems. After the first assignment, noticed most students were making the same handful of mistakes and ran a workshop to address them once, for everyone, instead of repeating the same feedback in each session.</li>
       </ul>
     </div>
   </section>
@@ -115,10 +118,11 @@
     <div class="item">
       <h3>Operating an Agentic LLM System</h3>
       <div class="when">2026 – present</div>
-      <p class="sub">Personal project · Claude-based, MCP tool integrations, persistent memory with hybrid keyword + embedding retrieval, lifecycle hooks, scheduled wake-ups</p>
+      <p class="sub">Personal project · Claude-based, MCP tool integrations, persistent memory with hybrid keyword + embedding retrieval, lifecycle hooks, scheduled wake-ups, and a scheduled sub-agent that executes tasks from a direction file maintained by the main agent</p>
       <ul>
         <li>Set the control policy rather than the code: fail-closed pre-execution guardrails for unattended runs, all externally sourced content treated as untrusted input, a 24-hour change-control rule for irreversible actions, and a data-handling line for what may leave the machine.</li>
         <li>Documented observed failure modes: silent tool failures reported as success, stale state overwriting fresh, context loss across compaction. Most of the code is agent-written; my role is architecture, review, testing and debugging.</li>
+        <li>Instrumented the setup with Langfuse for trace-level observability (cost, turns, latency per run), with input redaction for the worker that reads private messages.</li>
       </ul>
     </div>
 
@@ -191,8 +195,8 @@
     <section>
       <h2>Skills</h2>
       <ul class="skills">
-        <li><strong>AI / LLM engineering</strong>Agentic LLM systems with tool calling and MCP integrations; reviewing and debugging agent-written code; Claude Code</li>
-        <li><strong>Model evaluation</strong>Benchmarking ML and NLP models, significance testing, experiment tracking (W&amp;B), interpretability (XAI, LIME, concept bottlenecks), fairness post-processing</li>
+        <li><strong>AI / LLM engineering</strong>Agentic LLM systems with tool calling and MCP integrations; sub-agent orchestration; LLM observability (Langfuse); reviewing and debugging agent-written code; Claude Code</li>
+        <li><strong>Evaluation &amp; experimentation</strong>Metric design for ML and LLM systems, benchmarking, significance testing (McNemar), class-imbalance handling, experiment tracking (W&amp;B), interpretability (XAI, LIME, concept bottlenecks), fairness post-processing (Equalized Odds)</li>
         <li><strong>Backend &amp; full-stack</strong>Python backend handlers and APIs, PostgreSQL / SQL, Next.js · TypeScript · React, Tailwind</li>
         <li><strong>ML &amp; tooling</strong>PyTorch, scikit-learn, NLP, Git, Docker, GitHub Actions, Hydra</li>
       </ul>
