@@ -34,8 +34,8 @@
   .role{font-size:16px; color:var(--accent); margin:0 0 10px; font-weight:600}
   .contact{display:flex; flex-wrap:wrap; gap:6px 18px; color:var(--muted); font-size:14px; margin:0; padding:0; list-style:none}
   .contact a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line)}
-  .summary{margin:14px 0 0; max-width:70ch}
-  .teaser{margin:12px 0 0; max-width:70ch; font-size:13.5px; color:var(--muted)}
+  .summary{margin:14px 0 0}
+  .teaser{margin:12px 0 0; font-size:13.5px; color:var(--muted)}
   .teaser .tag{display:inline-block; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border-radius:3px; padding:1px 6px; margin-right:6px}
   .teaser a{color:inherit; border-bottom:1px solid var(--line); text-decoration:none}
   section{margin:0 0 26px}
@@ -47,8 +47,10 @@
   .item{display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:0 0 14px}
   .item h3{font-size:15.5px; margin:0; font-weight:650}
   .item .when{color:var(--muted); font-size:13.5px; white-space:nowrap; text-align:right}
+  .secnote{font-size:13px; color:var(--muted); margin:-4px 0 12px}
   .item h3 .ptag{display:inline-block; font-size:11px; font-weight:500; letter-spacing:.03em; color:var(--accent); background:var(--accent-soft); border-radius:3px; padding:0 6px; margin-left:6px; vertical-align:2px; white-space:nowrap}
   .item .sub{grid-column:1 / -1; color:var(--muted); font-size:14px; margin:0}
+  .item .sub a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line)}
   .item ul{grid-column:1 / -1; margin:6px 0 0; padding-left:18px}
   .item li{margin:0 0 4px}
   .item li::marker{color:var(--accent)}
@@ -124,6 +126,7 @@
 
   <section>
     <h2>Projects</h2>
+    <p class="secnote">DTU projects were done in teams; each entry says what my part was where it matters.</p>
 
     <div class="item">
       <h3>Operating an Agentic LLM System <span class="ptag">Agents</span><span class="ptag">Evaluation</span></h3>
@@ -137,9 +140,27 @@
     </div>
 
     <div class="item">
+      <h3>Sarcasm Detection with Transformer Architectures <span class="ptag">NLP</span><span class="ptag">XAI</span></h3>
+      <div class="when">DTU · 2024</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02456">02456 Deep Learning</a> · final project</p>
+      <ul>
+        <li>Benchmarked four architectures (logistic-regression baseline, LSTM, hybrid, Transformer) on ~21k samples; the Transformer reached 86% accuracy / 0.86 F1, up from 82% for the baseline. Used attention visualization and LIME to inspect what each model relied on.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>MLOps Pipeline for Reproducible ML (ML-Art) <span class="ptag">MLOps</span></h3>
+      <div class="when">DTU · 2024</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02476">02476 Machine Learning Operations</a></p>
+      <ul>
+        <li>Reproducible ML pipeline with Docker, GitHub Actions, Hydra and Weights &amp; Biases: automated experiment tracking, data versioning, pre-commit hooks and cross-environment reproducibility.</li>
+      </ul>
+    </div>
+
+    <div class="item">
       <h3>Saliency Maps vs Concepts <span class="ptag">XAI</span><span class="ptag">Evaluation</span></h3>
-      <div class="when">DTU · team project · 2023</div>
-      <p class="sub">Responsible AI course</p>
+      <div class="when">DTU · 2023</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02517">02517 Responsible AI: Algorithmic Fairness and Explainability</a></p>
       <ul>
         <li>Compared a fine-tuned ResNet34 with a concept bottleneck model on CUB-200 (11,788 bird images) and designed our own metrics for the explanations themselves: overlap of salient pixels with the bounding box (IoU 0.29–0.36), annotated parts within 50 px of the most salient pixels (66.7%), concept predictions correct (112/112).</li>
         <li>Finding: the saliency maps covered the whole bird rather than any distinguishing feature; the concept explanations were easier to read but had no visual grounding.</li>
@@ -148,8 +169,8 @@
 
     <div class="item">
       <h3>Risk Assessment of an Autonomous Retail Robot (StockBot) <span class="ptag">Risk &amp; Safety</span></h3>
-      <div class="when">DTU · team report · 2023</div>
-      <p class="sub">Course 34760 Safety and Reliability in Robotic and Automation Systems · following ISO 12100</p>
+      <div class="when">DTU · 2023</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/34760">34760 Safety and Reliability in Robotic and Automation Systems</a> · following ISO 12100</p>
       <ul>
         <li>Wrote the risk-assessment method, the fault tree analysis (20 basic events in five failure classes; top-event probability 0.81, reported as an estimate because manufacturer failure data were not available) and the risk-reduction measures for each identified hazard.</li>
       </ul>
@@ -157,7 +178,8 @@
 
     <div class="item">
       <h3>Fairness in Juvenile-Justice Risk Prediction (Catalonia dataset) <span class="ptag">Fairness</span><span class="ptag">Evaluation</span></h3>
-      <div class="when">DTU</div>
+      <div class="when">DTU · 2023</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02517">02517 Responsible AI: Algorithmic Fairness and Explainability</a></p>
       <ul>
         <li>Random forest (scikit-learn) on 4,652 cases; evaluated with precision, recall, F1, ROC and calibration. Assessed fairness under three criteria and applied Equalized Odds post-processing.</li>
       </ul>
@@ -165,26 +187,11 @@
 
     <div class="item">
       <h3>Wearable Sensor Time Series: Clustering and Tensor Decomposition <span class="ptag">Data Analysis</span></h3>
-      <div class="when">DTU · team project · 2023</div>
+      <div class="when">DTU · 2023</div>
+      <p class="sub"><a href="https://kurser.dtu.dk/course/02582">02582 Computational Data Analysis</a></p>
       <ul>
         <li>Four biosignals from E4 wearable sensors (EDA, heart rate, temperature, BVP), aligned to a common 1 Hz timeline per participant.</li>
         <li>Did the unsupervised analysis: PCA, then K-means and DBSCAN (silhouette up to 0.64). Neither could separate the two task roles, and the report says so. Contributed to the team's Tucker3 decomposition (26 × 3,550 × 4), which kept the time dimension: there the roles formed distinct groups and the time loadings followed the rounds of the experiment.</li>
-      </ul>
-    </div>
-
-    <div class="item">
-      <h3>Sarcasm Detection with Transformer Architectures <span class="ptag">NLP</span><span class="ptag">XAI</span></h3>
-      <div class="when">DTU</div>
-      <ul>
-        <li>Benchmarked four architectures (logistic-regression baseline, LSTM, hybrid, Transformer) on ~21k samples; the Transformer reached 86% accuracy / 0.86 F1, up from 82% for the baseline. Used attention visualization and LIME to inspect what each model relied on.</li>
-      </ul>
-    </div>
-
-    <div class="item">
-      <h3>MLOps Pipeline for Reproducible ML (ML-Art) <span class="ptag">MLOps</span></h3>
-      <div class="when">DTU · course team project</div>
-      <ul>
-        <li>Reproducible ML pipeline with Docker, GitHub Actions, Hydra and Weights &amp; Biases: automated experiment tracking, data versioning, pre-commit hooks and cross-environment reproducibility.</li>
       </ul>
     </div>
   </section>
